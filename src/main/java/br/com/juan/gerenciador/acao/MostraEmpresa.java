@@ -1,23 +1,17 @@
-package br.com.juan.gerenciador.servlet;
+package br.com.juan.gerenciador.acao;
 
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class MostraEmpresaServlet
- */
-@WebServlet("/mostraEmpresa")
-public class MostraEmpresaServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+import br.com.juan.gerenciador.modelo.Banco;
+import br.com.juan.gerenciador.modelo.Empresa;
+
+public class MostraEmpresa {
+	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		
 		Banco banco = new Banco();
@@ -28,5 +22,4 @@ public class MostraEmpresaServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/formAlteraEmpresa.jsp");
 		rd.forward(request, response);
 	}
-
 }
