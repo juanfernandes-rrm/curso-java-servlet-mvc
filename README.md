@@ -1,2 +1,2 @@
-# curso-java-servlet
-Curso Java Servlet: programação web Java, que faz parte da Formação Spring da Alura.
+# curso-java-servlet-MVC
+Curso Java Servlet: autenticação, autorização e o padrão MVC, que faz parte da Formação Spring da Alura.
