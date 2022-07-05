@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.juan.gerenciador.modelo.Banco;
 import br.com.juan.gerenciador.modelo.Empresa;
 
-public class ListaEmpresas {
-	public void executa(HttpServletRequest request, HttpServletResponse response) 
+public class ListaEmpresas implements Acao{
+	public String executa(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		Banco banco = new Banco();
 		List<Empresa> lista = banco.getEmpresas();
@@ -20,7 +20,7 @@ public class ListaEmpresas {
 		for(Empresa empresa:lista) {
 			System.out.print(empresa.getNome());	
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas.jsp");
-		rd.forward(request, response);
+		return "forward:listaEmpresas.jsp";
+		
 	}
 }

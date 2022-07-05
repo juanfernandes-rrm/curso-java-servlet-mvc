@@ -7,13 +7,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.juan.gerenciador.modelo.Banco;
 
-public class RemoveEmpresa {
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws IOException {
+public class RemoveEmpresa implements Acao{
+	public String executa(HttpServletRequest request, HttpServletResponse response) 
+			throws IOException {
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		
 		Banco banco = new Banco();
 		banco.removeEmpresa(id);
 		
-		response.sendRedirect("entrada?acao=ListaEmpresas");
+		return "redirect:entrada?acao=ListaEmpresas";
 	}
 }

@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.juan.gerenciador.modelo.Banco;
 import br.com.juan.gerenciador.modelo.Empresa;
 
-public class NovaEmpresa {
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+public class NovaEmpresa implements Acao{
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String nomeEmpresa = request.getParameter("nome");
 		String paramDataEmpresa = request.getParameter("data");
 		
@@ -34,6 +34,6 @@ public class NovaEmpresa {
 		
 		System.out.println("Cadastrando nova empresa"+nomeEmpresa);
 		
-		response.sendRedirect("entrada?acao=ListaEmpresas");
+		return "redirect:entrada?acao=ListaEmpresas";
 	}
 }
